@@ -17,6 +17,9 @@ jobs:
     - name: Add the file to .gitignore
       run: echo "my_created_file.txt" >> .gitignore
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+
     - name: Commit changes
       run: |
         git config user.name github-actions
