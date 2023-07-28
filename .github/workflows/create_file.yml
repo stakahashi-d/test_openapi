@@ -14,16 +14,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Create the file
-      run: echo "This is a file created by GitHub Actions." > my_created_file.txt
-
-    - name: Add the file to .gitignore
-      run: echo "my_created_file.txt" >> .gitignore
+    - name: Add text to test.txt
+      run: echo "auto added" >> test.txt
 
     - name: Commit changes
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git add .
-        git reset -- .gitignore
+        git add test.txt
         git commit -m "Add a new file and update .gitignore [skip ci]"
