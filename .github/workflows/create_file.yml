@@ -24,5 +24,6 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git add my_created_file.txt .gitignore
+        git add .
+        git reset -- .gitignore
         git commit -m "Add a new file and update .gitignore [skip ci]"
