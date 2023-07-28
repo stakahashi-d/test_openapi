@@ -23,3 +23,4 @@ jobs:
         git config user.email github-actions@github.com
         git add test.txt
         git commit -m "Add a new file and update .gitignore [skip ci]"
+        git push
