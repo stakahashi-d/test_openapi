@@ -1,0 +1,25 @@
+name: Create File on Master
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  create_file:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'master'
+
+    steps:
+    - name: Create the file
+      run: echo "This is a file created by GitHub Actions." > my_created_file.txt
+
+    - name: Add the file to .gitignore
+      run: echo "my_created_file.txt" >> .gitignore
+
+    - name: Commit changes
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git add my_created_file.txt .gitignore
+        git commit -m "Add a new file and update .gitignore [skip ci]"
