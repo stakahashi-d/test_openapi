@@ -1,4 +1,4 @@
-name: Create File on Master
+name: Create File on Main
 
 on:
   pull_request:
@@ -19,7 +19,7 @@ jobs:
 
     - name: Commit changes
       run: |
-        git config --global user.email "actions@github.com"
-        git config --global user.name "GitHub Actions"
+        git config user.name github-actions
+        git config user.email github-actions@github.com
         git add my_created_file.txt .gitignore
         git commit -m "Add a new file and update .gitignore [skip ci]"
